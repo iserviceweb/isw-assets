@@ -5,12 +5,12 @@
       {
         "id": 1,
         "name": "sig_one",
-        "imageURL": "./ISW_Signature_Icons/signature/isw_signature_logo.png"
+        "imageURL": "ISW_Signature_Icons/signature/isw_signature_logo.png"
       },
       {
         "id": 2,
         "name": "sig_two",
-        "imageURL": "./ISW_Signature_Icons/signature/isw_signature_logo_2.png"
+        "imageURL": "ISW_Signature_Icons/signature/isw_signature_logo_2.png"
       }
     ]
   }
