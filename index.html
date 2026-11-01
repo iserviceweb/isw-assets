@@ -12,11 +12,7 @@
       <h1>Signature Logos</h1>
       <ul id="signature-list"></ul>
       
-      <h1>Primary Logos</h1>
-      <ul id="primary-list"></ul>
-      
-      <h1>Icons</h1>
-      <ul id="icon-list"></ul>
+
   
 </body>
 <script>
@@ -38,20 +34,6 @@
         const li = document.createElement('li');
         li.innerHTML = `<strong>${signature.name}</strong><br><img src="${signature.imageURL}" alt="${signature.name}" style="width:150px; height:auto;">`;
         signatureList.appendChild(li);
-      });
-
-      // Populate Primary Logos
-      data.data.primary.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${item.name}</strong><br><img src="${item.imageURL}" alt="${item.name}" style="width:150px; height:auto;">`;
-        primaryList.appendChild(li);
-      });
-
-      // Populate Icons
-      data.data.icons.forEach(item => {
-        const li = document.createElement('li');
-        li.innerHTML = `<strong>${item.name}</strong><br><img src="${item.imageURL}" alt="${item.name}" style="width:50px; height:auto;">`;
-        iconList.appendChild(li);
       });
 
       // Display JSON Data
