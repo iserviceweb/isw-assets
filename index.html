@@ -33,11 +33,11 @@
       const iconList = document.getElementById('icon-list');
       const jsonOutput = document.getElementById('json-output');
 
-      // Populate Signatures
+     // Populate Signatures
       if (data.data.signature) {
         data.data.signature.forEach(item => {
           const li = document.createElement('li');
-          li.innerHTML = `<strong>${signature.name}</strong><br><img src="${signature.imageURL}" alt="${signature.name}" style="width:150px; height:auto;">`;
+          li.innerHTML = `<strong>${item.name}</strong><br><img src="${item.imageURL}" alt="${item.name}" style="width:150px; height:auto;">`;
           signatureList.appendChild(li);
         });
       }
