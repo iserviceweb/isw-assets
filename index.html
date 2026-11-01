@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>iServiceWeb Assets</title>
+</head>
+<body>
+      <h1>JSON Data</h1>
+      <pre id="json-output"></pre>
+
+      <h1>Signature Logos</h1>
+      <ul id="signature-list"></ul>
+      
+      <h1>Primary Logos</h1>
+      <ul id="primary-list"></ul>
+      
+      <h1>Icons</h1>
+      <ul id="icon-list"></ul>
+  
+</body>
+<script>
+ fetch('assets.json') // Fetching the JSON file in the root directory
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      const signatureList = document.getElementById('signature-list');
+      const primaryList = document.getElementById('primary-list');
+      const iconList = document.getElementById('icon-list');
+      const jsonOutput = document.getElementById('json-output');
+
+      // Populate Signatures
+      if (data.data.signature) {
+        data.data.signature.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${item.name}</strong><br><img src="${item.imageURL}" alt="${item.name}" style="width:150px; height:auto;">`;
+          signatureList.appendChild(li);
+        });
+      }
+
+      // Populate Primary Logos (if added to your JSON later)
+      if (data.data.primary) {
+        data.data.primary.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${item.name}</strong><br><img src="${item.imageURL}" alt="${item.name}" style="width:150px; height:auto;">`;
+          primaryList.appendChild(li);
+        });
+      }
+
+      // Populate Icons (if added to your JSON later)
+      if (data.data.icons) {
+        data.data.icons.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${item.name}</strong><br><img src="${item.imageURL}" alt="${item.name}" style="width:50px; height:auto;">`;
+          iconList.appendChild(li);
+        });
+      }
+
+      // Display JSON Data
+      jsonOutput.textContent = JSON.stringify(data, null, 4); // Pretty-print the JSON
+    })
+    .catch(error => console.error('Error fetching data:', error));
+</script>
+</html>
